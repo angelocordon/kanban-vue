@@ -5,7 +5,10 @@
     </div>
     <!-- task cards -->
     <!-- Add card -->
-    <button class="button is-small task-button-add">＋ Add a Task</button>
+    <button class="button is-small task-button-add"
+            v-on:click="addTask">
+      ＋ Add a Task
+    </button>
   </div>
 </template>
 
@@ -13,6 +16,20 @@
 export default {
   name: 'task-column',
   props: { columnOwner: String, columnColor: String },
+  data() {
+    return {
+      tasks: []
+    };
+  },
+  methods: {
+    addTask() {
+      const msg = `What task would you like to add for ${this.columnOwner}?`;
+      const task = window.prompt(msg); /* eslint-disable-line no-alert */
+
+      // TODO: Empty strings should _not_ be added into the tasks data.
+      if (task) this.tasks.push(task);
+    }
+  },
   computed: {
     columnHeaderStyle() {
       return { backgroundColor: this.columnColor };
