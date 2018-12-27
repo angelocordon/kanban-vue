@@ -4,6 +4,10 @@
       <h1 class="column-owner">{{ columnOwner }}</h1>
     </div>
     <!-- task cards -->
+    <task-card v-for="task in tasks"
+               :task-description="task"
+               :key="task.index">
+    </task-card>
     <!-- Add card -->
     <button class="button is-small task-button-add"
             v-on:click="addTask">
@@ -13,8 +17,11 @@
 </template>
 
 <script>
+import TaskCard from './TaskCard';
+
 export default {
   name: 'task-column',
+  components: { TaskCard },
   props: { columnOwner: String, columnColor: String },
   data() {
     return {
@@ -23,8 +30,9 @@ export default {
   },
   methods: {
     addTask() {
-      const msg = `What task would you like to add for ${this.columnOwner}?`;
-      const task = window.prompt(msg); /* eslint-disable-line no-alert */
+      const msg = `Assign a task for ${this.columnOwner}`;
+      /* eslint-disable-next-line no-alert */
+      const task = window.prompt(msg);
 
       // TODO: Empty strings should _not_ be added into the tasks data.
       if (task) this.tasks.push(task);
@@ -40,12 +48,12 @@ export default {
 
 <style lang="scss">
 .task-column {
-  border: 1px dotted fade-out(#363636, 0.8);
+  // border: 1px dotted fade-out(#363636, 0.9);
   margin: 5rem 25px;
   padding: 0px;
 
   > .task-button-add {
-    margin-top: 1rem;
+    padding-left: 0px;
     background-color: transparent;
     border-color: transparent;
     color: #7a7a7a;
