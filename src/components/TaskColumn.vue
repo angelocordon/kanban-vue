@@ -48,11 +48,11 @@ export default {
 
 <style lang="scss">
 .task-column {
-  // border: 1px dotted fade-out(#363636, 0.9);
   margin: 5rem 25px;
   padding: 0px;
 
   > .task-button-add {
+    margin-top: 1rem;
     padding-left: 0px;
     background-color: transparent;
     border-color: transparent;

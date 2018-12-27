@@ -16,7 +16,6 @@ export default {
 <style lang="scss">
   .task-card {
     margin-top: 1rem;
-    margin-bottom: 1rem;
     padding: 6px 12px;
   }
 </style>
