@@ -29,5 +29,5 @@ export default {
 </script>
 
 <style lang="scss">
-  html { background-color: #eceeee }
+html { background-color: #eceeee }
 </style>

@@ -3,12 +3,12 @@
     <div class="column-header" :style="columnHeaderStyle">
       <h1 class="column-owner">{{ columnOwner }}</h1>
     </div>
-    <!-- task cards -->
+
     <task-card v-for="task in tasks"
                :task-description="task"
                :key="task.index">
     </task-card>
-    <!-- Add card -->
+
     <button class="button is-small task-button-add"
             v-on:click="addTask">
       ＋ Add a Task
@@ -48,20 +48,20 @@ export default {
 
 <style lang="scss">
 .task-column {
-  // border: 1px dotted fade-out(#363636, 0.9);
-  margin: 5rem 25px;
+  margin: 5rem 12.5px;
   padding: 0px;
+  &:first-child { margin-left: 2.5rem }
+  &:last-child { margin-right: 2.5rem }
 
   > .task-button-add {
+    margin-top: 1rem;
     padding-left: 0px;
     background-color: transparent;
     border-color: transparent;
     color: #7a7a7a;
     font-size: 0.8em;
     font-weight: bold;
-    &:hover {
-      color: #363636;
-    }
+    &:hover { color: #363636 }
   }
 }
 
