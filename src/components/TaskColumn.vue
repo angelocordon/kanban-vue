@@ -11,11 +11,10 @@
 
 <script>
 export default {
-  name: "task-column",
+  name: 'task-column',
   props: { columnOwner: String, columnColor: String },
-
   computed: {
-    columnHeaderStyle: function() {
+    columnHeaderStyle() {
       return { backgroundColor: this.columnColor };
     }
   }
