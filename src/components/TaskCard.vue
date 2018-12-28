@@ -13,7 +13,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .task-card {
   margin-top: 1rem;
   padding: 6px 12px;
