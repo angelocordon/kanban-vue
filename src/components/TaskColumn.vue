@@ -10,7 +10,7 @@
     </task-card>
 
     <button class="button is-small task-button-add"
-            v-on:click="addTask">
+            @click="addTask">
       ＋ Add a Task
     </button>
   </div>
@@ -22,7 +22,7 @@ import TaskCard from './TaskCard';
 export default {
   name: 'task-column',
   components: { TaskCard },
-  props: { columnOwner: String, columnColor: String },
+  props: { columnData: Object },
   data() {
     return {
       tasks: []
@@ -39,14 +39,17 @@ export default {
     }
   },
   computed: {
+    columnOwner() {
+      return this.columnData.owner
+    },
     columnHeaderStyle() {
-      return { backgroundColor: this.columnColor };
+      return { backgroundColor: this.columnData.color };
     }
   }
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .task-column {
   margin: 5rem 12.5px;
   padding: 0px;

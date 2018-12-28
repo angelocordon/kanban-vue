@@ -1,30 +1,22 @@
 <template>
   <div class="columns">
-    <task-column
-      v-for="owner in projectOwners"
-      :column-owner="owner.name"
-      :column-color="owner.color"
-      :key="owner.index"
-    ></task-column>
+    <task-column v-for="column in columns"
+                 :column-data="column"
+                 :key="column.index">
+    </task-column>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import TaskColumn from './components/TaskColumn';
 
 export default {
   name: 'App',
   components: { TaskColumn },
-  data() {
-    return {
-      projectOwners: [
-        { name: 'Winnie', color: '#8e6e95' },
-        { name: 'Bob', color: '#39a59c' },
-        { name: 'Thomas', color: '#344759' },
-        { name: 'George', color: '#e8741e' }
-      ]
-    };
-  }
+  computed: mapState({
+    columns: state => state.columns
+  })
 };
 </script>
 
