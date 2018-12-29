@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'task-add-button',
+  name: 'add-task-button',
   props: { columnId: Number },
   methods: {
     addTask() {

@@ -11,18 +11,18 @@
       :key="task.id">
     </task-card>
 
-    <task-add-button :column-id="columnId"></task-add-button>
+    <add-task-button :column-id="columnId"></add-task-button>
   </div>
 </template>
 
 <script>
 import ColumnHeader from './ColumnHeader';
 import TaskCard from './TaskCard';
-import TaskAddButton from './TaskAddButton';
+import AddTaskButton from './AddTaskButton';
 
 export default {
   name: 'task-column',
-  components: { TaskCard, ColumnHeader, TaskAddButton },
+  components: { TaskCard, ColumnHeader, AddTaskButton },
   props: {
     columnData: Object,
     columnId: Number
