@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
 import ColumnHeader from './ColumnHeader';
 import TaskCard from './TaskCard';
 import TaskAddButton from './TaskAddButton';
