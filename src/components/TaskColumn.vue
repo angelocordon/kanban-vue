@@ -1,12 +1,14 @@
 <template>
   <div class="column task-column">
-    <div class="column-header" :style="columnHeaderStyle">
-      <h1 class="column-owner">{{ columnOwner }}</h1>
-    </div>
+    <column-header
+      :columnOwner="columnOwner"
+      :headerColor="headerColor">
+    </column-header>
 
-    <task-card v-for="task in tasks"
-               :task-description="task"
-               :key="task.index">
+    <task-card
+      v-for="task in columnTasks"
+      :task-data="task"
+      :key="task.id">
     </task-card>
 
     <button class="button is-small task-button-add"
