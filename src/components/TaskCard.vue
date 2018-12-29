@@ -9,7 +9,12 @@
 <script>
 export default {
   name: 'task-card',
-  props: { taskDescription: String }
+  props: { taskData: Object },
+  computed: {
+    taskDescription() {
+      return this.taskData.description
+    }
+  }
 };
 </script>
 

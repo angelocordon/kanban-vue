@@ -11,41 +11,35 @@
       :key="task.id">
     </task-card>
 
-    <button class="button is-small task-button-add"
-            @click="addTask">
-      ＋ Add a Task
-    </button>
+    <task-add-button :column-id="columnId"></task-add-button>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
+import ColumnHeader from './ColumnHeader';
 import TaskCard from './TaskCard';
+import TaskAddButton from './TaskAddButton';
 
 export default {
   name: 'task-column',
-  components: { TaskCard },
-  props: { columnData: Object },
-  data() {
-    return {
-      tasks: []
-    };
-  },
-  methods: {
-    addTask() {
-      const msg = `Assign a task for ${this.columnOwner}`;
-      /* eslint-disable-next-line no-alert */
-      const task = window.prompt(msg);
-
-      // TODO: Empty strings should _not_ be added into the tasks data.
-      if (task) this.tasks.push(task);
-    }
+  components: { TaskCard, ColumnHeader, TaskAddButton },
+  props: {
+    columnData: Object,
+    columnId: Number
   },
   computed: {
-    columnOwner() {
-      return this.columnData.owner
+    columnId() {
+      return this.columnData.id;
     },
-    columnHeaderStyle() {
-      return { backgroundColor: this.columnData.color };
+    columnOwner() {
+      return this.columnData.owner;
+    },
+    headerColor() {
+      return this.columnData.color;
+    },
+    columnTasks() {
+      return this.columnData.tasks;
     }
   }
 };
@@ -57,29 +51,5 @@ export default {
   padding: 0px;
   &:first-child { margin-left: 2.5rem }
   &:last-child { margin-right: 2.5rem }
-
-  > .task-button-add {
-    margin-top: 1rem;
-    padding-left: 0px;
-    background-color: transparent;
-    border-color: transparent;
-    color: #7a7a7a;
-    font-size: 0.8em;
-    font-weight: bold;
-    &:hover { color: #363636 }
-  }
-}
-
-.column-header {
-  display: flex;
-  align-items: center;
-  height: 32px;
-  > .column-owner {
-    padding-left: 12px;
-    padding-right: 12px;
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 600;
-  }
 }
 </style>
