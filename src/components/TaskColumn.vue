@@ -11,7 +11,7 @@
       :key="task.id">
     </task-card>
 
-    <add-task-button :column-id="columnId"></add-task-button>
+    <add-task-button :column-id="columnKeyId"></add-task-button>
   </div>
 </template>
 
@@ -24,11 +24,10 @@ export default {
   name: 'task-column',
   components: { TaskCard, ColumnHeader, AddTaskButton },
   props: {
-    columnData: Object,
-    columnId: Number
+    columnData: Object
   },
   computed: {
-    columnId() {
+    columnKeyId() {
       return this.columnData.id;
     },
     columnOwner() {

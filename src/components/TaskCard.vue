@@ -12,7 +12,7 @@ export default {
   props: { taskData: Object },
   computed: {
     taskDescription() {
-      return this.taskData.description
+      return this.taskData.description;
     }
   }
 };

@@ -13,13 +13,15 @@ export default {
   },
   computed: {
     ownerName() {
-      return this.columnOwner
+      return this.columnOwner;
     },
     headerBackground() {
-      return { backgroundColor: this.headerColor }
+      return {
+        backgroundColor: this.headerColor
+      };
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

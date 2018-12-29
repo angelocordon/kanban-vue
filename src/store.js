@@ -18,21 +18,21 @@ const state = {
     },
 
     {
-      id: 1,
+      id: 2,
       owner: 'Bob',
       color: '#39a59c',
       tasks: []
     },
 
     {
-      id: 2,
+      id: 3,
       owner: 'Thomas',
       color: '#344759',
       tasks: []
     },
 
     {
-      id: 3,
+      id: 4,
       owner: 'George',
       color: '#e8741e',
       tasks: []
@@ -40,4 +40,13 @@ const state = {
   ]
 };
 
-export default new Vuex.Store({ state });
+const mutations = {
+  addTask(state) {
+
+  }
+};
+
+export default new Vuex.Store({
+  state,
+  mutations
+});

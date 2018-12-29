@@ -19,8 +19,8 @@ export default {
       // TODO: Empty strings should _not_ be added into the tasks data.
       if (task) this.tasks.push(task);
     }
-  },
-}
+  }
+};
 </script>
 
 <style lang="scss" scoped>
