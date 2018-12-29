@@ -2,7 +2,7 @@
   <div class="columns">
     <task-column v-for="column in columns"
                  :column-data="column"
-                 :key="column.index">
+                 :key="column.id">
     </task-column>
   </div>
 </template>
@@ -14,9 +14,7 @@ import TaskColumn from './components/TaskColumn';
 export default {
   name: 'App',
   components: { TaskColumn },
-  computed: mapState({
-    columns: state => state.columns
-  })
+  computed: mapState(['columns'])
 };
 </script>
 
