@@ -9,15 +9,18 @@
 <script>
 export default {
   name: 'add-task-button',
-  props: { columnId: Number },
+  props: { columnId: Number, columnOwner: String },
   methods: {
     addTask() {
-      const msg = `Assign a task for ${this.columnOwner}`;
+      const prompt = `Assign a task for ${this.columnOwner}`;
       /* eslint-disable-next-line no-alert */
-      const task = window.prompt(msg);
+      const task = window.prompt(prompt);
 
-      // TODO: Empty strings should _not_ be added into the tasks data.
-      if (task) this.tasks.push(task);
+      this.$store.commit({
+        type: 'addTask',
+        assignedTask: task,
+        columnId: this.columnId
+      });
     }
   }
 };
