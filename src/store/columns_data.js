@@ -1,9 +1,4 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
-
-Vue.use(Vuex);
-
-const state = {
+export default {
   columns: [
     {
       id: 1,
@@ -39,14 +34,3 @@ const state = {
     }
   ]
 };
-
-const mutations = {
-  addTask(state) {
-
-  }
-};
-
-export default new Vuex.Store({
-  state,
-  mutations
-});
